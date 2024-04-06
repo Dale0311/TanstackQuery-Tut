@@ -35,3 +35,14 @@ export const fetchTodos = (): Promise<TodoType[]> => {
     }, 2000); // Adjust the timeout value (in milliseconds) as needed
   });
 };
+
+// by using Pick this parameter will turn into a object
+export const addTodo = async (todo: Pick<TodoType, 'title'>) => {
+  const todoslength = todos.length;
+  const newTodo: TodoType = {
+    id: todoslength,
+    completed: false,
+    title: todo.title,
+  };
+  todos.push(newTodo);
+};
