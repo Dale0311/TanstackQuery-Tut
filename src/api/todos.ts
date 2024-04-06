@@ -37,7 +37,9 @@ export const fetchTodos = (): Promise<TodoType[]> => {
 };
 
 // by using Pick this parameter will turn into a object
-export const addTodo = async (todo: Pick<TodoType, 'title'>) => {
+export const addTodo = async (
+  todo: Pick<TodoType, 'title'>
+): Promise<TodoType[]> => {
   const todoslength = todos.length;
   const newTodo: TodoType = {
     id: todoslength,
@@ -45,4 +47,5 @@ export const addTodo = async (todo: Pick<TodoType, 'title'>) => {
     title: todo.title,
   };
   todos.push(newTodo);
+  return todos;
 };

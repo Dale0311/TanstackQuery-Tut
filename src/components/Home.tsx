@@ -13,13 +13,14 @@ const Home = () => {
   });
 
   const [todo, setTodo] = useState('');
-  if (isLoading) {
-    return <div style={{ fontSize: '46px' }}>Loading...</div>;
-  }
   const { mutateAsync: addTodoMutation } = useMutation({
     mutationFn: addTodo,
     mutationKey: ['todos'],
+    
   });
+  if (isLoading) {
+    return <div style={{ fontSize: '46px' }}>Loading...</div>;
+  }
 
   if (isError) {
     return <div>Error...</div>;
@@ -37,18 +38,14 @@ const Home = () => {
           value={todo}
           onChange={(e) => setTodo(e.target.value)}
         />
-        {/* <button
+        <button
           onClick={async () => {
-            try {
-              await addTodoMutation({ title: todo });
-              setTodo('');
-            } catch (error) {
-              console.log(error);
-            }
+            await addTodoMutation({ title: todo });
+            setTodo('');
           }}
         >
           add todo
-        </button> */}
+        </button>
       </div>
       {todosToDisplay}
     </div>
