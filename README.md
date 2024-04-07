@@ -33,6 +33,20 @@ const {
 });
 ```
 
-# Continuation
+#### useMutation - for writing
+
+```js
+const { mutateAsync: addTodoMutation } = useMutation({
+  mutationFn: addTodo,
+  mutationKey: ['todos'],
+});
+
+<button
+  onClick={async () => {
+    await addTodoMutation({ title: todo });
+    setTodo('');
+  }}
+>
+```
 
 https://www.youtube.com/watch?v=8K1N3fE-cDs&list=PLApy4UwQM3UqAkfITNFzlqoD__UI6X5pb&index=4 @Chapter 4

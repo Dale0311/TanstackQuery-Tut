@@ -16,7 +16,6 @@ const Home = () => {
   const { mutateAsync: addTodoMutation } = useMutation({
     mutationFn: addTodo,
     mutationKey: ['todos'],
-    
   });
   if (isLoading) {
     return <div style={{ fontSize: '46px' }}>Loading...</div>;
